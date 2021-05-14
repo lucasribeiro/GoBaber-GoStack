@@ -9,12 +9,12 @@
             "request": "attach",
             "protocol": "inspector",
             "restart": true,
-            "name": "Launch Chrome against localhost",
+            "name": "Debug",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "outFiles": [
-                "${workspacefolder}/**/*.js"
+                "${workspacefolder}/**/*.ts"
             ]
         }
     ]

@@ -1,0 +1,10 @@
+{
+    "launch": {
+
+
+        "configurations": [],
+        "compounds": [],
+    },
+    "debug.allowBreakpointsEverywhere": true,
+    "debug.javascript.usePreview": false
+}
