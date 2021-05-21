@@ -1,0 +1,8 @@
+.idea/
+.vscode/
+node_mopdules/
+build/
+temp/
+
+tmp/*
+!tmp/.gitkeep
