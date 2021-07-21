@@ -31,6 +31,7 @@
     "react/props-type": "off",
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
+    "no-unused-expressions": "off",
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {
