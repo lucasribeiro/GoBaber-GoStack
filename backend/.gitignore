@@ -1,6 +1,7 @@
 .idea/
 .vscode/
 node_mopdules/
+/node_modules
 build/
 temp/
 
