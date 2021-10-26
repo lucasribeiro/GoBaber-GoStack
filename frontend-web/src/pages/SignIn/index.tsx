@@ -1,10 +1,11 @@
-import React, { useRef, useCallback, useContext } from 'react';
+/* eslint-disable no-console */
+import React, { useRef, useCallback } from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
-import { AuthContext } from '../../context/AuthContext';
+import { useAuth } from '../../hooks/AuthContext';
 import getValidationErrors from '../../utils/getValidationErrors';
 
 import logoImg from '../../assets/logo.svg';
@@ -12,7 +13,7 @@ import logoImg from '../../assets/logo.svg';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Content, Backgroud } from './styles';
+import { Container, Content, Background } from './styles';
 
 interface SignInFormData {
   email: string;
@@ -22,7 +23,7 @@ interface SignInFormData {
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { signIn } = useContext(AuthContext);
+  const { signIn } = useAuth();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -43,8 +44,6 @@ const SignIn: React.FC = () => {
           password: data.password,
         });
       } catch (err) {
-        console.log(err);
-
         const errors = getValidationErrors(err);
 
         formRef.current?.setErrors(errors);
@@ -79,7 +78,7 @@ const SignIn: React.FC = () => {
           Criar conta
         </a>
       </Content>
-      <Backgroud />
+      <Background />
     </Container>
   );
 };
