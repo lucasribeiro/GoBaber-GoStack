@@ -35,6 +35,7 @@ const SignIn: React.FC = () => {
             .email('Digite um email válido'),
           password: Yup.string().min(6, 'Senha obrigatória'),
         });
+
         await schema.validate(data, {
           abortEarly: false,
         });
@@ -44,9 +45,11 @@ const SignIn: React.FC = () => {
           password: data.password,
         });
       } catch (err) {
-        const errors = getValidationErrors(err);
+        if (err instanceof Yup.ValidationError) {
+          const errors = getValidationErrors(err);
 
-        formRef.current?.setErrors(errors);
+          formRef.current?.setErrors(errors);
+        }
       }
     },
     [signIn],
