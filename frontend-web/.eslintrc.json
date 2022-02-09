@@ -32,6 +32,13 @@
     "import/prefer-default-export": "off",
     "react/prop-types": "off",
     "no-unused-expressions": "off",
+    "import/no-cycle": [
+      "error",
+      {
+        "maxDepth": 10,
+        "ignoreExternal": true
+      }
+    ],
     "@typescript-eslint/explicit-function-return-type": [
       "error",
       {
