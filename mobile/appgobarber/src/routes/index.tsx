@@ -1,16 +1,16 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 
-import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
+import SignIn from '../pages/SignIn';
 
-const Auth = createNativeStackNavigator();
+const Auth = createStackNavigator();
 
 const AuthRotes: React.FC = () => (
   <Auth.Navigator
     screenOptions={{
       headerShown: false,
-      contentStyle: {backgroundColor: '#312e38'},
+      cardStyle: {backgroundColor: '#312e38'},
     }}>
     <Auth.Screen name="SignIn" component={SignIn} />
     <Auth.Screen name="SignUp" component={SignUp} />

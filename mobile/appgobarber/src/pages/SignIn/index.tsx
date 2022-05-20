@@ -1,9 +1,16 @@
 import React from 'react';
-import {Image, View, ScrollView, KeyboardAvoidingView, Platform} from 'react-native';
+import {
+  Image,
+  View,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
-import Input from '../../components/Input/Index';
-import Button from '../../components/Button/Index';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../../routes/RootStackParams';
 
 import logoImg from '../../assets/logo.png';
 import {
@@ -15,7 +22,13 @@ import {
   CreateAccountButtonText,
 } from './styles';
 
+import Input from '../../components/Input/Index';
+import Button from '../../components/Button/Index';
+
 const SignIn: React.FC = () => {
+  type SignUpScreenProp = StackNavigationProp<RootStackParamList, 'SignIn'>;
+  const navigation = useNavigation<SignUpScreenProp>();
+
   return (
     <>
       <KeyboardAvoidingView
@@ -39,13 +52,16 @@ const SignIn: React.FC = () => {
               }}>
               Entrar
             </Button>
-            <ForgotPassword OnPress={() => {}}>
+            <ForgotPassword>
               <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
             </ForgotPassword>
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
-      <CreateAccountButton OnPress={() => {}}>
+      <CreateAccountButton
+        onPress={() => {
+          navigation.navigate('SignUp');
+        }}>
         <Icon name="log-in" size={20} color="#ff9000" />
         <CreateAccountButtonText>Criar uma conta</CreateAccountButtonText>
       </CreateAccountButton>
